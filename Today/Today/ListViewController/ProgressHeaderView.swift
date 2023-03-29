@@ -13,6 +13,8 @@ class ProgressHeaderView: UICollectionReusableView {
     
     var progress: CGFloat = 0 {
         didSet {
+            // invalidates the current layout and triggers an update.
+            setNeedsLayout()
             heightConstraint?.constant = progress * bounds.height
             UIView.animate(withDuration: 0.2, animations: { [weak self] in
                 self?.layoutIfNeeded()
@@ -32,6 +34,10 @@ class ProgressHeaderView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         prepareSubViews()
+        
+        isAccessibilityElement = true
+        accessibilityLabel = NSLocalizedString("Progress", comment: "Progress view accessibility label")
+        accessibilityTraits.update(with: .updatesFrequently)
     }
     
     required init?(coder: NSCoder) {
@@ -40,6 +46,7 @@ class ProgressHeaderView: UICollectionReusableView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        accessibilityValue = String(format: valueFormat, Int(progress * 100.0))
         heightConstraint?.constant = progress * bounds.height
         containerView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 0.5 * containerView.bounds.width

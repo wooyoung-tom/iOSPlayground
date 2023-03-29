@@ -77,6 +77,13 @@ class ReminderListViewController: UICollectionViewController {
         collectionView.dataSource = dataSource
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // To display the background, you'll need to refresh the background in the view life cycle.
+        refreshBackground()
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         let id = filteredReminders[indexPath.item].id
         pushDetailViewForReminder(withId: id)
@@ -96,11 +103,18 @@ class ReminderListViewController: UICollectionViewController {
         progressView.progress = progress
     }
     
-    /**
-     * This method adda a detail view controller to the navigation stack, causing a detail view to push onto the screen.
-     * The detail view displays the reminder details for the provided identifier.
-     * And a Back button appears automatically as the leading item in the navigation bar.
-     */
+    func refreshBackground() {
+        collectionView.backgroundView = nil
+        let backgroundView = UIView()
+        let gradientLayer = CAGradientLayer.gradientLayer(for: listStyle, in: collectionView.frame)
+        backgroundView.layer.addSublayer(gradientLayer)
+        collectionView.backgroundView = backgroundView
+    }
+    
+    /// This method adds a detail view controller to the navigation stack,
+    /// causing a detail view to push onto the screen.
+    /// The detail view displays the reminder details for the provided identifier.
+    /// And a Back button appears automatically as the leading item in the navigation bar.
     func pushDetailViewForReminder(withId id: Reminder.ID) {
         let reminder = reminder(withId: id)
         let viewController = ReminderViewController(reminder: reminder) { [weak self] reminder in
