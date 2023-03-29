@@ -36,6 +36,8 @@
 		5896D6AC29D4212200C40FC3 /* CAGradientLayer+ListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5896D6AB29D4212200C40FC3 /* CAGradientLayer+ListStyle.swift */; };
 		5896D6AE29D42C9000C40FC3 /* TodayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5896D6AD29D42C9000C40FC3 /* TodayError.swift */; };
 		5896D6B129D42D4D00C40FC3 /* EKEventStore+AsyncFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5896D6B029D42D4D00C40FC3 /* EKEventStore+AsyncFetch.swift */; };
+		5896D6B329D42F1C00C40FC3 /* Reminder+EKReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5896D6B229D42F1C00C40FC3 /* Reminder+EKReminder.swift */; };
+		5896D6B529D4302200C40FC3 /* ReminderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5896D6B429D4302200C40FC3 /* ReminderStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		5896D6AB29D4212200C40FC3 /* CAGradientLayer+ListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+ListStyle.swift"; sourceTree = "<group>"; };
 		5896D6AD29D42C9000C40FC3 /* TodayError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayError.swift; sourceTree = "<group>"; };
 		5896D6B029D42D4D00C40FC3 /* EKEventStore+AsyncFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+AsyncFetch.swift"; sourceTree = "<group>"; };
+		5896D6B229D42F1C00C40FC3 /* Reminder+EKReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+EKReminder.swift"; sourceTree = "<group>"; };
+		5896D6B429D4302200C40FC3 /* ReminderStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,8 @@
 				5896D6AB29D4212200C40FC3 /* CAGradientLayer+ListStyle.swift */,
 				5896D6AD29D42C9000C40FC3 /* TodayError.swift */,
 				5896D6B029D42D4D00C40FC3 /* EKEventStore+AsyncFetch.swift */,
+				5896D6B229D42F1C00C40FC3 /* Reminder+EKReminder.swift */,
+				5896D6B429D4302200C40FC3 /* ReminderStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -369,10 +375,12 @@
 				580EA07929D1262A00744302 /* AppDelegate.swift in Sources */,
 				582EBAD729D2C7C200749599 /* ReminderViewController+CellConfiguration.swift in Sources */,
 				580EA07B29D1262A00744302 /* SceneDelegate.swift in Sources */,
+				5896D6B329D42F1C00C40FC3 /* Reminder+EKReminder.swift in Sources */,
 				5896D6B129D42D4D00C40FC3 /* EKEventStore+AsyncFetch.swift in Sources */,
 				580EA0AB29D12D5800744302 /* Reminder.swift in Sources */,
 				5896D6AC29D4212200C40FC3 /* CAGradientLayer+ListStyle.swift in Sources */,
 				580EA0B129D161EE00744302 /* ReminderListViewController+DataSource.swift in Sources */,
+				5896D6B529D4302200C40FC3 /* ReminderStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
