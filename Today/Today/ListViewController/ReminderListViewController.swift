@@ -166,3 +166,25 @@ class ReminderListViewController: UICollectionViewController {
         headerView = progressView
     }
 }
+
+#if DEBUG
+import SwiftUI
+
+struct ReminderListViewControllerWrapper: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> some UIViewController {
+        return UIViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        // Do nothing
+    }
+}
+
+@available(iOS 13.0, *)
+struct ReminderListViewControllerPreview: PreviewProvider {
+    
+    static var previews: some View {
+        ReminderListViewControllerWrapper()
+    }
+}
+#endif
