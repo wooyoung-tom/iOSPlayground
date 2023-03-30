@@ -19,6 +19,8 @@ extension ReminderListViewController {
         NSLocalizedString("Not completed", comment: "Reminder not completed value")
     }
     
+    private var reminderStore: ReminderStore { ReminderStore.shared }
+    
     /// Specifying an empty array as the default value for the parameter lets you call the method from `viewDidLoad` without providing identifiers.
     ///
     /// - Parameters:
@@ -105,6 +107,25 @@ extension ReminderListViewController {
     func deleteReminder(withId id: Reminder.ID) {
         let index = reminders.indexOfReminder(withId: id)
         reminders.remove(at: index)
+    }
+    
+    func prepareReminderStore() {
+        // create a new unit of work that executes asynchronously.
+        Task {
+            do {
+                try await reminderStore.requestAccess()
+                reminders = try await reminderStore.readAll()
+            } catch TodayError.accessDenied, TodayError.accessRestricted {
+                // Providing sample data allows your app to function in a demonstration mode when EventKit data is unavailable.
+                #if DEBUG
+                reminders = Reminder.sampleData
+                #endif
+            } catch {
+                showError(error)
+            }
+            
+            updateSnapshot()
+        }
     }
     
     /// call this method in the cell registration handler to create a custom action for each cell.
