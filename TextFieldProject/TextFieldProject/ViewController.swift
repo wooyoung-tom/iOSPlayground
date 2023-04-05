@@ -63,6 +63,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return newString.length <= maxLength
     }
     
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        print(#function)
+
+        print(textField.text)
+    }
+    
     // return key 허용 여부
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print(#function)
